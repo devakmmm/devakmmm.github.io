@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Devak Mehta</title>
+<meta name="description" content="Things I build on one laptop: decision models, a desk voice puck, hand-tracked 3D, robot policies, and the discipline hooks I run my AI agents with.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fbfbfa; --surface: #ffffff; --ink: #1f2328; --ink-soft: #57606a; --ink-faint: #8b949e;
+    --line: #d8dee4; --accent: #2563eb;
+    --live: #15803d; --live-soft: #dcfce7; --build: #b45309; --build-soft: #fef3c7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --surface: #161b22; --ink: #e6edf3; --ink-soft: #9da7b3; --ink-faint: #6e7681;
+      --line: #30363d; --accent: #58a6ff;
+      --live: #3fb950; --live-soft: #122c1d; --build: #d29922; --build-soft: #2e2410;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; padding-inline: 20px; padding-block: 40px 64px; }
+  main { max-width: 720px; margin: 0 auto; display: grid; gap: 28px; }
+  h1 { margin: 0; font-size: 28px; line-height: 1.2; }
+  h2 { margin: 0; font-size: 17px; }
+  p { margin: 0; max-width: 62ch; }
+  a { color: var(--accent); }
+  .lede { color: var(--ink-soft); font-size: 17px; }
+  .rule { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; color: var(--ink-faint); letter-spacing: 0.02em; }
+  ul.builds { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  ul.builds li { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 6px 14px; align-items: start; border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 14px 16px; }
+  ul.builds p { grid-column: 1; color: var(--ink-soft); font-size: 15px; }
+  .tag { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; border: 1px solid; white-space: nowrap; }
+  .tag.live { color: var(--live); border-color: var(--live); background: var(--live-soft); }
+  .tag.build { color: var(--build); border-color: var(--build); background: var(--build-soft); }
+  footer { color: var(--ink-faint); font-size: 14px; }
+  @media (max-width: 480px) { ul.builds li { grid-template-columns: 1fr; } .tag { justify-self: start; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Devak Mehta</h1>
+    <p class="lede">Things I build on one laptop with an integrated GPU. Own code, vendored models, nothing leaves the machine. Every write-up carries one measured number and one real failure.</p>
+  </header>
+
+  <section>
+    <h2 class="rule">Builds</h2>
+    <ul class="builds" style="margin-top:10px">
+      <li>
+        <h2><a href="./sentence-snake/">Sentence Snake</a></h2>
+        <span class="tag live">live</span>
+        <p>A 149M-parameter model plays Snake from one sentence per move, with no safety check in code. Every probability on the replay is the one the model gave. It beat the rule it learned from in 3 of 10 unseen games, and the 7 losses are on the page too.</p>
+      </li>
+      <li>
+        <h2>The puck</h2>
+        <span class="tag build">building</span>
+        <p>A coaster-sized ESP32-S3 voice satellite for the desk: WiFi mic, speaker, LED ring, button. Firmware with zero third-party libraries. First power-on found three bugs the simulator could not catch.</p>
+      </li>
+      <li>
+        <h2>D.V's Lab</h2>
+        <span class="tag build">building</span>
+        <p>A webcam watches your hands. Open palm turns a 3D part, pinch drags it, two hands scale it, a fist blows it apart. Own WebGL renderer, hand tracking in the browser, no cloud.</p>
+      </li>
+      <li>
+        <h2>Robotics lab</h2>
+        <span class="tag build">sim phase</span>
+        <p>Imitation-learning policies trained on an integrated GPU, sim first. Honest scoreboard, including the 0% success runs.</p>
+      </li>
+      <li>
+        <h2>Discipline hooks for Claude Code</h2>
+        <span class="tag build">publishing</span>
+        <p>Six small hooks that make an AI coding agent prove its claims before it finishes, walk the diff before it pushes, and keep its hands off comments and databases.</p>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>One page per build as it lands. Posts on LinkedIn and X point here.</p>
+  </footer>
+</main>
+</body>
+</html>
